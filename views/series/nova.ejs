@@ -9,16 +9,26 @@
                 <form method="POST">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nome</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <input type="text" name="name" class="form-control <% if(errors && errors.indexOf('name')>=0){  %> is-invalid <% } %>" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <% if(errors && errors.indexOf('name')>=0){  %> 
+                    <div  id="invalidCheck3Feedback" class="invalid-feedback">
+                      Por favor, informe o nome da série.
+                    </div>
+                    <% } %>
                   </div>
                   <div class="form-group">
                     <label for="status">Situação:</label>
-                    <select class="form-control" id="status" name="status">
-                      <option value="to-watch" selected>Para assistir</option>
+                    <select class="form-control  <% if(errors && errors.indexOf('status')>=0){  %> is-invalid <% } %> " id="status" name="status">
+                      <option selected="" disabled="" value="">Selecione...</option>
+                      <option value="to-watch">Para assistir</option>
                       <option value="watching">Assistindo</option>
                       <option value="watched">Assistido</option>
                     </select>
+                    <% if(errors && errors.indexOf('status')>=0){  %> 
+                      <div  id="invalidCheck3Feedback" class="invalid-feedback">
+                        Por favor, selecione uma opção.
+                      </div>
+                      <% } %>
                 </div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
