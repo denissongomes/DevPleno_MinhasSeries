@@ -15,8 +15,17 @@ const novaProcess = ({ Serie }, req, res) => {
 const novaForm = (req, res) => {
     res.render('series/nova')
 }
+
+const removeOne = ({ Serie }, req, res) => {
+     Serie.remove({_id: req.params.id} , (err) => {
+        res.redirect('/series')
+   }) 
+ }
+ 
 module.exports = {
     index,
     novaProcess,
-    novaForm
+    novaForm,
+    removeOne,
+   
 }
