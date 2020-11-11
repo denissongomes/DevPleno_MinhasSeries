@@ -6,13 +6,34 @@
        <div class="row">
          <div class="col-lg-8 mx-auto">
            <h2>Séries</h2>
-           <p class="lead">Uma headline aqui</p>
-           <ul>
-               <% series.forEach(serie => { %>
-                   <li><%= serie.name %> <%= serie.status %></li>
-              <% }); %>
-            
-           </ul>
+           <p class="lead"><a type="button" class="btn btn-info" href="/series/nova">Nova série</a></p>
+      
+
+           <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Status</th>
+         
+              </tr>
+            </thead>
+            <tbody>
+                
+              <tr>
+                <% series.forEach(serie => { %>
+               
+                <th scope="row">1</th>
+                <td><%= serie.name %></td>
+                <td><%= serie.status %></td>
+                
+                <% }); %>
+              </tr>
+           
+            </tbody>
+          </table>
+          
+   
          </div>
        </div>
      </div>
