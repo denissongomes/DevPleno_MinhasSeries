@@ -7,8 +7,15 @@ const index = (req, res) => {
     })
     //
 }
-const nova = (req, res) => res.render('series/nova')
+const nova = (req, res) => {
+ const series = new Serie({
+     name: 'Supernatural',
+     status: 'watching'
 
+ })
+ series.save(() => console.log('saved..'))
+    res.render('series/nova')
+}
 module.exports = {
     index,
     nova
