@@ -17,6 +17,6 @@ router.post('/nova', seriesController.novaProcess.bind(null, models))
 router.get('/excluir/:id', seriesController.removeOne.bind(null, models))
 
 router.get('/editar/:id', seriesController.updateForm.bind(null, models))
-router.get('/editar/:id', seriesController.updateProcess.bind(null, models))
+router.post('/editar/:id', seriesController.updateProcess.bind(null, models))
 
 module.exports = router
