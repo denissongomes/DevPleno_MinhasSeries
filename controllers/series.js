@@ -21,11 +21,31 @@ const removeOne = ({ Serie }, req, res) => {
         res.redirect('/series')
    }) 
  }
- 
+
+ const updateForm = ({ Serie },req, res) => {
+     const labels = [
+         {id: 'to-watch', name: 'Para assistir', badge: 'badge-primary'},
+         {id: 'watching', name: 'Assistindo', badge: 'badge-warning'},
+         {id: 'watched', name: 'Assistido', badge: 'badge-success'}
+     ]
+    Serie.findOne({_id: req.params.id}, (err, serie) => {
+        res.render('series/editar', { serie, labels })
+    }) 
+    
+}
+
+const updateProcess = ({ Serie }, req, res) => {
+    
+         res.redirect('/series')
+     
+   
+ }
+
 module.exports = {
     index,
     novaProcess,
     novaForm,
     removeOne,
-   
+    updateForm,
+    updateProcess
 }
