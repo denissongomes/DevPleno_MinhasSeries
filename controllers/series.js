@@ -5,13 +5,11 @@ const index = ({ Serie } ,req, res) => {
     //
 }
 const novaProcess = ({ Serie }, req, res) => {
- //  const series = new Serie({
-//      name: 'Supernatural',
-//      status: 'watching'
-
-//  })
-//  series.save(() => console.log('saved..'))
-    res.render('series/nova')
+   const series = new Serie(req.body)
+    series.save(() => {
+        res.redirect('/series')
+    })
+  
 }
 
 const novaForm = (req, res) => {
