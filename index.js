@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 
 //routes
-app.get('/', (req,res) => res.send('OK'))
+app.get('/', (req,res) => res.render('index'))
 
 //Conect DB and Server
 mongoose
