@@ -23,12 +23,9 @@ const removeOne = async({ Serie }, req, res) => {
     res.redirect('/series')
  }
 
- const updateForm = ({ Serie },req, res) => {
-    
-    Serie.findOne({_id: req.params.id}, (err, serie) => {
-        res.render('series/editar', { serie, labels })
-    }) 
-    
+ const updateForm = async ({ Serie },req, res) => {
+  const serie = await Serie.findOne({_id: req.params.id})
+   res.render('series/editar', { serie, labels })  
 }
 
 const updateProcess = async({ Serie }, req, res) => {
