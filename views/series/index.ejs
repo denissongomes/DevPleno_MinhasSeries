@@ -6,7 +6,7 @@
        <div class="row">
          <div class="col-lg-8 mx-auto">
            <h2>Séries</h2>
-           <p class="lead">Todas as séries cadastradas </p>
+           <p class=" ">Todas as séries cadastradas </p>
       
 
            <table class="table table-bordered table-hover">
@@ -28,7 +28,7 @@
                 <td><%= serie.name %></td>
 
                 <!-- Outra alternativa -->
-                 <!-- <%= labels.filter(label => label.id === serie.status)[0].name %> -->
+                 <!--   labels.filter(label => label.id === serie.status)[0].name  -->
                 <% labels.forEach(label => { %>
                   <% if(label.id === serie.status){ %>  
                 <td><span class="badge badge-pill <%= label.badge %>"><%= label.name %></span></td>
