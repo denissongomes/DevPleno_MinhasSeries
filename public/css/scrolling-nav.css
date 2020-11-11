@@ -5,15 +5,50 @@
  */
 
 header {
-  padding: 154px 0 100px;
+  padding: 200px 0 100px;
+  height: 100%;
 }
 
 @media (min-width: 992px) {
   header {
-    padding: 156px 0 100px;
+  padding: 156px 0 100px;
+  height: 100%;
+
   }
 }
 
 section {
   padding: 150px 0;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont," ",Roboto,"Helvetica Neue",Arial,sans-serif !important;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url("/images/netflix-bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-info {
+  background-color: #000!important;
+  opacity: 0.70;
+}
+
+.lead {
+  font-size: 4rem;
+  font-weight: 600;
+}
+.bg-dark {
+  background-color: #000!important;
 }
