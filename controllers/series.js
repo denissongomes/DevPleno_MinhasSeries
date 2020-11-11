@@ -1,6 +1,13 @@
+const labels = [
+    {id: 'to-watch', name: 'Para assistir', badge: 'badge-primary'},
+    {id: 'watching', name: 'Assistindo', badge: 'badge-warning'},
+    {id: 'watched', name: 'Assistido', badge: 'badge-success'}
+]
+
 const index = ({ Serie } ,req, res) => {
+ 
     Serie.find({}, (err,docs) => {
-        res.render('series/index', { series: docs }) 
+        res.render('series/index', { series: docs, labels }) 
     })
     //
 }
@@ -23,11 +30,7 @@ const removeOne = ({ Serie }, req, res) => {
  }
 
  const updateForm = ({ Serie },req, res) => {
-     const labels = [
-         {id: 'to-watch', name: 'Para assistir', badge: 'badge-primary'},
-         {id: 'watching', name: 'Assistindo', badge: 'badge-warning'},
-         {id: 'watched', name: 'Assistido', badge: 'badge-success'}
-     ]
+    
     Serie.findOne({_id: req.params.id}, (err, serie) => {
         res.render('series/editar', { serie, labels })
     }) 
@@ -35,11 +38,13 @@ const removeOne = ({ Serie }, req, res) => {
 }
 
 const updateProcess = ({ Serie }, req, res) => {
-    
-         res.redirect('/series')
-     
-   
- }
+    Serie.findOne({_id: req.params.id}, (err, serie) => {
+       serie.name = req.body.name
+       serie.status =  req.body.status
+       serie.save()
+       res.redirect('/series')
+    })  
+}
 
 module.exports = {
     index,
