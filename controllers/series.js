@@ -8,12 +8,10 @@ const index = async ({ Serie } ,req, res) => {
    const  docs = await Serie.find({})
         res.render('series/index', { series: docs, labels })    
 }
-const novaProcess = ({ Serie }, req, res) => {
+const novaProcess = async({ Serie }, req, res) => {
    const series = new Serie(req.body)
-    series.save(() => {
-        res.redirect('/series')
-    })
-  
+    await series.save()
+    res.redirect('/series')
 }
 
 const novaForm = (req, res) => {
