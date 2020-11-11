@@ -18,10 +18,11 @@ const novaForm = (req, res) => {
     res.render('series/nova')
 }
 
-const removeOne = ({ Serie }, req, res) => {
-     Serie.remove({_id: req.params.id} , (err) => {
-        res.redirect('/series')
-   }) 
+const removeOne = async({ Serie }, req, res) => {
+    await Serie.remove({
+        _id: req.params.id
+    })
+    res.redirect('/series')
  }
 
  const updateForm = ({ Serie },req, res) => {
