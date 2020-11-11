@@ -19,9 +19,7 @@ const novaForm = (req, res) => {
 }
 
 const removeOne = async({ Serie }, req, res) => {
-    await Serie.remove({
-        _id: req.params.id
-    })
+    await Serie.remove({ _id: req.params.id })
     res.redirect('/series')
  }
 
@@ -33,13 +31,12 @@ const removeOne = async({ Serie }, req, res) => {
     
 }
 
-const updateProcess = ({ Serie }, req, res) => {
-    Serie.findOne({_id: req.params.id}, (err, serie) => {
-       serie.name = req.body.name
-       serie.status =  req.body.status
-       serie.save()
-       res.redirect('/series')
-    })  
+const updateProcess = async({ Serie }, req, res) => {
+    const serie =  await Serie.findOne({_id: req.params.id})
+    serie.name = req.body.name
+    serie.status =  req.body.status
+    await  serie.save()    
+    res.redirect('/series')   
 }
 
 module.exports = {
