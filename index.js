@@ -5,6 +5,9 @@ const path = require('path')
 const mongoose = require('mongoose')
 const port = process.env.PORT || 3000
 
+//routes
+pages = require('./routes/pages')
+
 //mongoDB
 const mongo = process.env.MONGODB || 'mongodb://localhost/minhas-series'
 
@@ -20,8 +23,9 @@ app.set('views', path.join(__dirname, 'views'))
 //assets
 app.use(express.static(path.join(__dirname, 'public')))
 
-//routes
-app.get('/', (req,res) => res.render('index'))
+//routes for pages
+app.use('/', pages)
+ 
 
 //Conect DB and Server
 mongoose
