@@ -5,9 +5,13 @@ const mongoose = require('mongoose')
 
 //Passar o formato dos dados para o mongoose
 const SerieSchema = mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+    },
     status:{
         type: String,
+        required: true,
         enumValues: ['to-watch', 'watching', 'watched']
     },
     comments: [String]
