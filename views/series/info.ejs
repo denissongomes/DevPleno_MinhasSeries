@@ -1,0 +1,20 @@
+<%- include('../partials/header') %> 
+<body id="page-top"></body>
+   <section id="about">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 mx-auto">
+           <h2><%= serie.name %></h2>
+                <form method="POST">
+                 <p><%= serie.info %></p>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Comentário</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div> 
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+         </div>
+       </div>
+     </div>
+   </section>
+   <%- include('../partials/footer') %> 
