@@ -9,6 +9,9 @@ const SerieSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    info: {
+        type: String
+    },
     status:{
         type: String,
         required: true,
