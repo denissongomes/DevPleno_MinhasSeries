@@ -40,6 +40,7 @@ const removeOne = async({ Serie }, req, res) => {
 const updateProcess = async({ Serie }, req, res) => {
     const serie =  await Serie.findOne({_id: req.params.id})
     serie.name = req.body.name
+    serie.info = req.body.info
     serie.status =  req.body.status
    try{
     await  serie.save()    
@@ -50,11 +51,18 @@ const updateProcess = async({ Serie }, req, res) => {
     
 }
 
+const info = async({ Serie }, req, res) => {
+ const serie = await Serie.findOne({ _id: req.params.id })
+ res.render('series/info', { serie })
+
+}
+
 module.exports = {
     index,
     novaProcess,
     novaForm,
     removeOne,
     updateForm,
-    updateProcess
+    updateProcess, 
+    info
 }
