@@ -9,10 +9,25 @@
                  <p><%= serie.info %></p>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Comentário</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="comentario" class="form-control" rows="3"></textarea>
                       </div> 
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary">Adicionar comentário</button>
                 </form>
+          
+                <% serie.comments.forEach( comment => {   %>
+                    
+                    <p> 
+                      <div class="card">
+                        
+                        <div class="card-body">
+                          <h5 class="card-title">Seu nome</h5>
+                          <p class="card-text"><%= comment %></p>
+                         
+                        </div>
+                      </div>
+                    </p>
+
+                    <% }) %>
          </div>
        </div>
      </div>
