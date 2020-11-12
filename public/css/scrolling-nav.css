@@ -15,6 +15,21 @@ header {
   height: 100%;
 
   }
+
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    padding: 80px 0 !important;
+}
+  
+  .lead {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+}
+
+.table td, .table th {
+  padding: .5rem !important; }
 }
 
 section {
@@ -26,7 +41,11 @@ body, html {
   font-family: -apple-system,BlinkMacSystemFont," ",Roboto,"Helvetica Neue",Arial,sans-serif !important;
 }
 
-
+.title {
+  color: #AF0606;
+  font-size: 4em;
+  font-weight: 600;
+}
 .bg {
   /* The image used */
   background-image: url("/images/netflix-bg.jpg");
@@ -51,4 +70,14 @@ body, html {
 }
 .bg-dark {
   background-color: #000!important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  line-height: 60px;
+  background-color: #000;
+  border-top: 3px solid #AF0606;
+  border-bottom: 0;
 }
