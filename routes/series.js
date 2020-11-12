@@ -20,5 +20,6 @@ router.get('/editar/:id', seriesController.updateForm.bind(null, models))
 router.post('/editar/:id', seriesController.updateProcess.bind(null, models))
 
 router.get('/info/:id', seriesController.info.bind(null, models))
+router.post('/info/:id', seriesController.addComment.bind(null, models))
 
 module.exports = router
